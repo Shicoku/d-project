@@ -1,4 +1,37 @@
-input {
-  border: solid 1.5px #000;
-  border-radius: 5px;
+.main {
+  display: flex;
+  /*align-items: center;*/
+  justify-content: center;
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+}
+
+.input {
+  /*padding: 0.875rem 1rem;*/
+  outline: none;
+  transition:
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.sarchBox {
+  width: 20px;
+  height: 20px;
+  background: #0000;
+  border: 2px solid #000;
+  border-radius: 50px;
+}
+.sarchBox::after {
+  content: "";
+  display: inline-block;
+  transform: rotate(-45deg);
+  position: relative;
+  background: #000;
+  width: 3px;
+  height: 10px;
+  top: 8px;
+  left: 10px;
+}
+.sarchBox:hover {
+  opacity: 0.6;
 }

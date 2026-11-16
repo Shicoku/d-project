@@ -1,14 +1,13 @@
-// import Image from "next/image";
 import styles from "./styles/home.module.css";
 
 export default function Home() {
   return (
-    <div>
-      <div className={styles.serch}>
-        <input type="search" />
-
-        <button>Search</button>
-      </div>
-    </div>
+    <main className={styles.main}>
+      <section className={styles.search}>
+        <input type="search" className={styles.input} />
+        <button className={styles.sarchBox}></button>
+      </section>
+      <section className={styles.cards}></section>
+    </main>
   );
 }
