@@ -6,12 +6,24 @@
   padding: 4rem 1.5rem;
 }
 
+.search {
+  display: flex;
+  gap: 8px;
+  width: min(100%, 32rem);
+}
+
 .input {
   /*padding: 0.875rem 1rem;*/
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  height: 5%;
   outline: none;
   transition:
     border-color 150ms,
     box-shadow 150ms;
+  border: solid 1px #000;
+  border-radius: 8px;
 }
 
 .sarchBox {
