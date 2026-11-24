@@ -9,4 +9,6 @@
 .text {
   margin: 0;
   font-size: 3rem;
+  margin-left: 15px;
+  color: #666;
 }
