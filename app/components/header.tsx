@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div>
-        <p className={styles.text}>AI口コミサイト</p>
+        <p className={styles.text}>講義口コミサイト</p>
       </div>
     </header>
   );
