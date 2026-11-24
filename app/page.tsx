@@ -22,7 +22,7 @@ export default function Home() {
             href={`/classes/${course.slug}`}
           >
             <h2>{course.name}</h2>
-            <p>担当: {course.teacger} 先生</p>
+            <p>担当: {course.teacher} 先生</p>
             <span>授業を見る →</span>
           </Link>
         ))}
@@ -30,4 +30,3 @@ export default function Home() {
     </main>
   );
 }
-
