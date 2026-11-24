@@ -73,6 +73,12 @@
   gap: 18px;
 }
 
+.empty {
+  margin: 0;
+  color: #74776f;
+  text-align: center;
+}
+
 .card {
   display: flex;
   flex-direction: column;
