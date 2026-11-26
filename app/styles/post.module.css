@@ -44,6 +44,15 @@
 .reviews { margin-top: 34px; padding-top: 26px; border-top: 1px solid #e7ebe5; }
 .reviews h2 { margin: 0 0 10px; color: #29392e; font-size: 20px; }
 .reviews p { color: #74776f; font-size: 14px; }
+.reviewCard { margin-top: 16px; padding: 18px; border: 1px solid #e2e9e1; border-radius: 12px; background: #fbfcfa; }
+.reviewCard h3 { margin: 0; color: #29392e; font-size: 17px; }
+.reviewMeta { margin: 7px 0 12px; color: #74776f; font-size: 12px; }
+.reviewContent { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.7; }
+.reviewScores { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+.reviewScores li { display: flex; justify-content: space-between; gap: 8px; padding: 8px 10px; border-radius: 7px; background: #eef3ed; color: #536257; font-size: 12px; }
+.reviewScores strong { color: #345d43; }
+.error { margin: 0; color: #a34531; font-size: 14px; }
+.submitButton:disabled { opacity: .65; cursor: wait; }
 .courseList { display: grid; gap: 12px; margin: 28px 0 0; padding: 0; list-style: none; }
 .courseList a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px; border: 1px solid #e2e9e1; border-radius: 12px; color: #29392e; text-decoration: none; transition: border-color 160ms ease, background 160ms ease; }
 .courseList a:hover { border-color: #b7cbb8; background: #f8faf7; }
