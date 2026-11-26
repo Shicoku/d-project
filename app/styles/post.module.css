@@ -1,0 +1,43 @@
+.main {
+  width: min(100% - 32px, 760px);
+  margin: 0 auto;
+  padding: 38px 0 80px;
+}
+
+.back { color: #52745c; font-size: 14px; text-decoration: none; }
+.back:hover { text-decoration: underline; }
+.panel { margin-top: 22px; padding: clamp(22px, 5vw, 48px); border: 1px solid #e2e9e1; border-radius: 18px; background: #fff; box-shadow: 0 12px 32px rgb(38 56 45 / 6%); }
+.panel + .panel { margin-top: 22px; }
+.eyebrow { margin: 0 0 10px; color: #66866c; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
+.panel h1 { margin: 0; color: #29392e; font-size: clamp(25px, 5vw, 34px); }
+.formHeading { margin: 0; color: #29392e; font-size: 24px; }
+.description { margin: 10px 0 30px; color: #74776f; }
+.form { display: grid; gap: 22px; }
+.field { display: grid; gap: 9px; color: #29392e; font-size: 14px; font-weight: 600; }
+.field span { display: flex; align-items: center; gap: 8px; }
+.field b { padding: 3px 7px; border-radius: 4px; background: #f8e9e5; color: #a34531; font-size: 11px; }
+.field input, .field select, .field textarea { width: 100%; border: 1px solid #d9dfd7; border-radius: 9px; background: #fff; color: #29392e; font: inherit; font-weight: 400; }
+.field input, .field select { height: 48px; padding: 0 13px; }
+.field textarea { min-height: 180px; padding: 13px; resize: vertical; line-height: 1.7; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: #66866c; outline: 3px solid rgb(102 134 108 / 15%); }
+.field small { justify-self: end; color: #74776f; font-size: 12px; font-weight: 400; }
+.submitButton, .secondaryButton { min-height: 48px; padding: 0 20px; border: 0; border-radius: 9px; background: #345d43; color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+.submitButton:hover, .secondaryButton:hover { background: #284a35; }
+.note { margin: -10px 0 0; color: #74776f; font-size: 12px; text-align: center; }
+.confirmation { padding: 20px; border-radius: 12px; background: #f5f8f4; color: #29392e; }
+.confirmation h2 { margin: 0 0 8px; font-size: 20px; }
+.confirmation p { line-height: 1.7; }
+.confirmation dl { display: grid; grid-template-columns: 100px 1fr; gap: 12px; margin: 22px 0; }
+.confirmation dt { color: #74776f; font-size: 13px; }
+.confirmation dd { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.preview { line-height: 1.7; }
+.reviews { margin-top: 34px; padding-top: 26px; border-top: 1px solid #e7ebe5; }
+.reviews h2 { margin: 0 0 10px; color: #29392e; font-size: 20px; }
+.reviews p { color: #74776f; font-size: 14px; }
+.courseList { display: grid; gap: 12px; margin: 28px 0 0; padding: 0; list-style: none; }
+.courseList a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px; border: 1px solid #e2e9e1; border-radius: 12px; color: #29392e; text-decoration: none; transition: border-color 160ms ease, background 160ms ease; }
+.courseList a:hover { border-color: #b7cbb8; background: #f8faf7; }
+.courseList a > span:first-child { display: grid; gap: 6px; }
+.courseList small { color: #74776f; }
+.courseList a > span:last-child { color: #52745c; }
+.secondaryButton { background: #66866c; }

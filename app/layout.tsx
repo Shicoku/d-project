@@ -1,10 +1,10 @@
 import "./globals.css";
 import Header from "./components/header";
 
-import { Chiron_Sung_HK } from "next/font/google";
+import { M_PLUS_1 } from "next/font/google";
 
-const ChironSungFont = Chiron_Sung_HK({
-  weight: "400",
+const MPlus1Font = M_PLUS_1({
+  weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -12,7 +12,7 @@ const ChironSungFont = Chiron_Sung_HK({
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ja" className="h-full antialiased">
-      <body className={`min-h-full flex flex-col ${ChironSungFont.className}`}>
+      <body className={`min-h-full flex flex-col ${MPlus1Font.className}`}>
         <Header />
         {children}
       </body>
