@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^2.0.0-rc.5",
+    "@mdx-js/rollup": "^3.1.1",
     "@tailwindcss/postcss": "^4.3.5",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
