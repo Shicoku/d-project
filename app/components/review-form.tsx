@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, Fragment, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -10,11 +11,15 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import styles from "../styles/post.module.css";
+import { readApiResponse } from "../lib/read-api-response";
 
 const ratingItems = ["課題", "面白さ", "分かりやすさ", "テスト", "出席", "教授の話"];
 
-export default function ReviewForm({ courseName }: { courseName: string }) {
+export default function ReviewForm({ courseName, courseSlug }: { courseName: string; courseSlug: string }) {
+  const router = useRouter();
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [year, setYear] = useState("");
@@ -25,9 +30,36 @@ export default function ReviewForm({ courseName }: { courseName: string }) {
     value: scores[index],
   }));
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+    try {
+      const response = await fetch("/api/reviews", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          courseSlug,
+          title,
+          content,
+          schoolYear: Number(year),
+          assignmentScore: scores[0],
+          interestScore: scores[1],
+          clarityScore: scores[2],
+          testScore: scores[3],
+          attendanceScore: scores[4],
+          professorTalkScore: scores[5],
+        }),
+      });
+      const result = await readApiResponse<{ error?: string }>(response);
+      if (!response.ok) throw new Error(result.error ?? "投稿に失敗しました。もう一度お試しください。");
+      setSubmitted(true);
+      router.refresh();
+    } catch (submitError) {
+      setError(submitError instanceof Error ? submitError.message : "投稿に失敗しました。もう一度お試しください。");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -37,8 +69,8 @@ export default function ReviewForm({ courseName }: { courseName: string }) {
       <p className={styles.description}>投稿先：{courseName}</p>
       {submitted ? (
         <div className={styles.confirmation} role="status">
-          <h3>入力内容を確認しました</h3>
-          <p>投稿を共有するには、保存先の設定が必要です。</p>
+          <h3>口コミを投稿しました</h3>
+          <p>投稿内容はこの講義のページに表示されます。</p>
           <dl>
             <dt>講義</dt><dd>{courseName}</dd>
             <dt>タイトル</dt><dd>{title}</dd>
@@ -46,7 +78,6 @@ export default function ReviewForm({ courseName }: { courseName: string }) {
             {ratingItems.map((item, index) => <Fragment key={item}><dt>{item}</dt><dd>{scores[index]} / 5</dd></Fragment>)}
             <dt>内容</dt><dd className={styles.preview}>{content}</dd>
           </dl>
-          <button className={styles.secondaryButton} onClick={() => setSubmitted(false)} type="button">内容を編集する</button>
         </div>
       ) : (
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -96,7 +127,8 @@ export default function ReviewForm({ courseName }: { courseName: string }) {
             <textarea required minLength={5} maxLength={2000} rows={8} value={content} onChange={(event) => setContent(event.target.value)} placeholder="講義の内容、課題、雰囲気などを書いてください（5〜2000文字）" />
             <small>{content.length} / 2000文字</small>
           </label>
-          <button className={styles.submitButton} type="submit">口コミを確認する</button>
+          {error && <p className={styles.error} role="alert">{error}</p>}
+          <button className={styles.submitButton} type="submit" disabled={submitting}>{submitting ? "投稿中…" : "口コミを投稿する"}</button>
           <p className={styles.note}>ログインは不要です。タイトル・受講年度・内容はすべて必須です。</p>
         </form>
       )}

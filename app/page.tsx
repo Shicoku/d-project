@@ -32,7 +32,9 @@ export default async function Home({
           aria-label="講義名または教員名で検索"
           defaultValue={query}
         />
-        <button className={styles.sarchBox} aria-label="検索" type="submit" />
+        <button className={styles.sarchBox} aria-label="検索" type="submit">
+          <img src="/sarch.svg" alt="" width="24" height="24" />
+        </button>
       </form>
 
       {displayedClasses.length > 0 ? (
