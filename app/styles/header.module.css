@@ -48,3 +48,41 @@
   outline: 2px solid currentColor;
   outline-offset: 4px;
 }
+
+/* ヘッダーを基準にメニューを配置 */
+.header {
+  position: relative;
+}
+
+/* ハンバーガーボタン */
+.menuButton {
+  font-size: 32px;
+  color: #345d43;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+/* メニュー全体 */
+.menu {
+  position: absolute;
+  top: 5.5rem;
+  right: 20px;
+  width: 220px;
+  padding: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.menuItem {
+  padding: 12px;
+  margin: 8px 0;
+  text-align: center;
+  color: #444;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
