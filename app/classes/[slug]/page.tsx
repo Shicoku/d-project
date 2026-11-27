@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { env } from "cloudflare:workers";
 import { classes } from "../../data/classes";
 import ReviewForm from "../../components/review-form";
+import ReviewDeleteRequest from "../../components/review-delete-request";
 import styles from "../../styles/post.module.css";
 
 type Review = {
@@ -50,6 +51,7 @@ export default async function ClassPage({
                   <li key={label}>{label}<strong>{[review.assignment_score, review.interest_score, review.clarity_score, review.test_score, review.attendance_score, review.professor_talk_score][index]}/5</strong></li>
                 ))}
               </ul>
+              <ReviewDeleteRequest reviewId={review.id} />
             </article>
           )) : <p>まだ口コミはありません。最初の口コミを投稿しませんか？</p>}
         </section>
