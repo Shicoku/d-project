@@ -12,6 +12,7 @@ export default defineConfig(({ isPreview }) => ({
     },
     env: {
       ASSETS: bindings.assets(),
+      ADMIN_TOKEN: bindings.secret(),
       DB: bindings.d1({
         name: isPreview ? "reviews-dev" : "reviews-prod",
         id: isPreview

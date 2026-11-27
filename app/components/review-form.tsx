@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import styles from "../styles/post.module.css";
+import { readApiResponse } from "../lib/read-api-response";
 
 const ratingItems = ["課題", "面白さ", "分かりやすさ", "テスト", "出席", "教授の話"];
 
@@ -50,7 +51,7 @@ export default function ReviewForm({ courseName, courseSlug }: { courseName: str
           professorTalkScore: scores[5],
         }),
       });
-      const result = await response.json() as { error?: string };
+      const result = await readApiResponse<{ error?: string }>(response);
       if (!response.ok) throw new Error(result.error ?? "投稿に失敗しました。もう一度お試しください。");
       setSubmitted(true);
       router.refresh();

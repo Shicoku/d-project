@@ -51,6 +51,15 @@
 .reviewScores { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
 .reviewScores li { display: flex; justify-content: space-between; gap: 8px; padding: 8px 10px; border-radius: 7px; background: #eef3ed; color: #536257; font-size: 12px; }
 .reviewScores strong { color: #345d43; }
+.deleteRequest { margin-top: 14px; font-size: 13px; }
+.textButton { padding: 0; border: 0; background: transparent; color: #8a493e; font: inherit; text-decoration: underline; cursor: pointer; }
+.deleteRequestForm { display: grid; gap: 12px; }
+.deleteRequestForm label { display: grid; gap: 6px; }
+.deleteRequestForm textarea { width: 100%; padding: 10px; border: 1px solid #d9dfd7; border-radius: 8px; font: inherit; }
+.dangerButton { min-height: 42px; padding: 0 16px; border: 0; border-radius: 8px; background: #a34531; color: white; font: inherit; cursor: pointer; }
+.dangerButton:disabled { opacity: .6; cursor: wait; }
+.adminControls { display: flex; gap: 10px; }
+.adminControls input { flex: 1; min-width: 0; padding: 0 12px; border: 1px solid #d9dfd7; border-radius: 9px; font: inherit; }
 .error { margin: 0; color: #a34531; font-size: 14px; }
 .submitButton:disabled { opacity: .65; cursor: wait; }
 .courseList { display: grid; gap: 12px; margin: 28px 0 0; padding: 0; list-style: none; }
