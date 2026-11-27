@@ -3,6 +3,7 @@ import { env } from "cloudflare:workers";
 import { classes } from "../../data/classes";
 import ReviewForm from "../../components/review-form";
 import ReviewDeleteRequest from "../../components/review-delete-request";
+import OverallRatingChart from "../../components/overall-rating-chart";
 import styles from "../../styles/post.module.css";
 
 type Review = {
@@ -32,6 +33,28 @@ export default async function ClassPage({
       clarity_score, test_score, attendance_score, professor_talk_score, created_at
      FROM reviews WHERE course_slug = ? ORDER BY created_at DESC LIMIT 100`,
   ).bind(slug).all<Review>();
+  const overall = await env.DB.prepare(
+    `SELECT COUNT(*) AS review_count,
+      AVG(assignment_score) AS assignment_score,
+      AVG(interest_score) AS interest_score,
+      AVG(clarity_score) AS clarity_score,
+      AVG(test_score) AS test_score,
+      AVG(attendance_score) AS attendance_score,
+      AVG(professor_talk_score) AS professor_talk_score
+     FROM reviews WHERE course_slug = ?`,
+  ).bind(slug).first<{
+    review_count: number;
+    assignment_score: number | null;
+    interest_score: number | null;
+    clarity_score: number | null;
+    test_score: number | null;
+    attendance_score: number | null;
+    professor_talk_score: number | null;
+  }>();
+  const averages = [overall?.assignment_score, overall?.interest_score, overall?.clarity_score,
+    overall?.test_score, overall?.attendance_score, overall?.professor_talk_score]
+    .map((score) => score ?? 0);
+  const reviewCount = overall?.review_count ?? 0;
 
   return (
     <main className={styles.main}>
@@ -56,6 +79,7 @@ export default async function ClassPage({
           )) : <p>まだ口コミはありません。最初の口コミを投稿しませんか？</p>}
         </section>
       </section>
+      <OverallRatingChart averages={averages} reviewCount={reviewCount} />
       <ReviewForm courseName={course.name} courseSlug={course.slug} />
     </main>
   );

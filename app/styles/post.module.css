@@ -17,6 +17,7 @@
 .ratingGroup legend { padding: 0 8px; color: #29392e; font-size: 15px; font-weight: 700; }
 .ratingGroup legend span { margin-left: 8px; color: #74776f; font-size: 12px; font-weight: 400; }
 .chart { width: 100%; height: 280px; }
+.emptyChart { margin: 0; padding: 30px 16px; border-radius: 12px; background: #f5f8f4; color: #74776f; text-align: center; }
 .ratingList { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; }
 .ratingField { display: grid; gap: 7px; color: #29392e; font-size: 13px; }
 .ratingField > span, .ratingField small { display: flex; justify-content: space-between; gap: 8px; }
