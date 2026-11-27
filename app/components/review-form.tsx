@@ -78,7 +78,6 @@ export default function ReviewForm({ courseName, courseSlug }: { courseName: str
             {ratingItems.map((item, index) => <Fragment key={item}><dt>{item}</dt><dd>{scores[index]} / 5</dd></Fragment>)}
             <dt>内容</dt><dd className={styles.preview}>{content}</dd>
           </dl>
-          <button className={styles.secondaryButton} onClick={() => setSubmitted(false)} type="button">内容を編集する</button>
         </div>
       ) : (
         <form className={styles.form} onSubmit={handleSubmit}>
