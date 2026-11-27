@@ -5,6 +5,7 @@ export default defineConfig(({ isPreview }) => ({
     name: "corgi",
     entrypoint: "vinext/server/fetch-handler",
     compatibilityDate: "2026-11-26",
+    previewUrls: true,
     assets: {
       htmlHandling: "none",
       notFoundHandling: "none",
