@@ -16,13 +16,12 @@ export default function Header() {
       </div>
 
       <button
-        className={styles.menuButton}
+        className={`${styles.toggleIcon} ${menuOpen ? styles.open : ""}`}
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="メニュー"
         aria-expanded={menuOpen}
-      >
-        ☰
-      </button>
+        >
+        </button>
 
       {menuOpen && (
         <div className={styles.menu}>

@@ -49,40 +49,87 @@
   outline-offset: 4px;
 }
 
-/* ヘッダーを基準にメニューを配置 */
-.header {
+/* ハンバーガーメニュー */
+.toggleIcon {
   position: relative;
-}
-
-/* ハンバーガーボタン */
-.menuButton {
-  font-size: 32px;
-  color: #345d43;
-  background: none;
+  width: 35px;
+  height: 25px;
+  background: linear-gradient(
+    #345d43,
+    #345d43
+  ) center / 100% 3px no-repeat;
   border: none;
   cursor: pointer;
-  margin-right: 15px;
+  z-index: 20;
 }
 
-/* メニュー全体 */
-.menu {
+/* 上下の線 */
+.toggleIcon::before,
+.toggleIcon::after {
+  content: "";
   position: absolute;
-  top: 5.5rem;
-  right: 20px;
-  width: 220px;
-  padding: 10px;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #345d43;
+  transition: 0.3s;
+}
+
+/* 上の線 */
+.toggleIcon::before {
+  top: 0;
+}
+
+/* 下の線 */
+.toggleIcon::after {
+  bottom: 0;
+}
+
+/* 開いたとき */
+.toggleIcon.open {
+  background: none;
+}
+
+/* 上の線を回転 */
+.toggleIcon.open::before {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* 下の線を回転 */
+.toggleIcon.open::after {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  background: rgba(255, 255, 255, 0.65);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+
   z-index: 10;
 }
 
 .menuItem {
-  padding: 12px;
-  margin: 8px 0;
-  text-align: center;
-  color: #444;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  color: #555;
+  font-size: 28px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.menuItem:hover {
+  color: #345d43;
+  transform: scale(1.1);
 }
