@@ -1,0 +1,8 @@
+export function Terms() {
+  return (
+    <div>
+      <h1>利用規約</h1>
+      <p>aaaa</p>
+    </div>
+  );
+}

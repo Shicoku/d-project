@@ -11,7 +11,7 @@ export default function Header() {
     <header className={styles.header}>
       <div>
         <p className={styles.text}>
-          <Link href="/">講義口コミサイト Corgi</Link>
+          <Link href="/">Corgi</Link>
         </p>
       </div>
 
@@ -20,17 +20,16 @@ export default function Header() {
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="メニュー"
         aria-expanded={menuOpen}
-        >
-        </button>
+      ></button>
 
       {menuOpen && (
         <div className={styles.menu}>
           <div className={styles.menuItem}>
-            講義一覧
+            <Link href="/classes">講義一覧</Link>
           </div>
 
           <div className={styles.menuItem}>
-            利用規約
+            <Link href="/terms">利用規約</Link>
           </div>
         </div>
       )}
