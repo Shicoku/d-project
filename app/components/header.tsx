@@ -25,11 +25,11 @@ export default function Header() {
       {menuOpen && (
         <div className={styles.menu}>
           <div className={styles.menuItem}>
-            <Link href="/classes">講義一覧</Link>
+            <Link href="/classes" onClick={() => setMenuOpen(false)}>講義一覧</Link>
           </div>
 
           <div className={styles.menuItem}>
-            <Link href="/terms">利用規約</Link>
+            <Link href="/terms" onClick={() => setMenuOpen(false)}>利用規約</Link>
           </div>
         </div>
       )}
